@@ -77,10 +77,6 @@ function TV() {
                             <b>Rating:</b> {tvRating}
                         </p>
                         <br />
-
-                        <button className="button" onClick={showTrailer}>
-                            Watch Trailer
-                        </button>
                     </div>
                 </div>
             </div>
