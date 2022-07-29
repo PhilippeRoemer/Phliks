@@ -13,6 +13,7 @@ function Movie() {
     const [movieRating, setMovieRating] = useState([]);
     const [movieDescription, setMovieDescription] = useState([]);
     const [movieCast, setMovieCast] = useState([]);
+    const [movieTrailer, setMovieTrailer] = useState([]);
 
     const { id } = useParams();
 
@@ -46,9 +47,20 @@ function Movie() {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
 
-    const showTrailer = () => {};
+        axios
+            .get("https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + api_key + "&language=en-US")
+            .then((res) => {
+                console.log(res.data.results);
+                const test = res.data.results.filter((trailer) => trailer.type === "Trailer" || trailer.name === "Official Trailer" || trailer.name === "Trailer");
+                console.log(test);
+                console.log(test[0].key);
+                setMovieTrailer(test[0].key);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     console.log(id);
     return (
@@ -78,8 +90,10 @@ function Movie() {
                         </p>
                         <br />
 
-                        <button className="button" onClick={showTrailer}>
-                            Watch Trailer
+                        <button className="button">
+                            <a href={"https://www.youtube.com/watch?v=" + movieTrailer} target="_blank">
+                                Watch Trailer
+                            </a>
                         </button>
                     </div>
                 </div>
