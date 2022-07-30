@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: linear-gradient(to right top, #191919, #202025, #262733, #2a2e40, #2d364f, #303450, #343250, #39304f, #3c233d, #3a182b, #330f19, #2a0700);
+    background-size: cover;
+    font-family: "Lato", sans-serif;
+}
+
+.moviesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.movieContainer {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+    align-items: center;
+    color: #bbb;
+}
+
+.moviePoster {
+    width: 55%;
+    border-radius: 25px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.589);
+    border-right: 2px solid rgba(128, 128, 128, 0.589);
+    box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+}
+
+.moviePoster:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top, #191919, #1e1d20, #222227, #26272e, #292c36, #2c2f39, #2e323c, #31353f, #34363e, #37383d, #39393c, #3b3b3b);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #686868;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #ccc;
+}
+
+input:focus + .slider {
+    background-color: #ccc;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.toggleContainer {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    text-shadow: 8px 3px 16px #000000e8;
+}
+
+.popularTitle {
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 8px 3px 16px #0000008f;
+}
+
+.bold {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.backdropImage {
+    width: 100%;
+}
+
+.infoContainer {
+    display: flex;
+    align-items: center;
+    padding: 25px 15% 25px 15%;
+    color: #fff;
+}
+
+.infoContainerBackground {
+    border-bottom: 1px solid var(--primaryColor);
+    background-size: cover;
+    background-repeat: no-repeat;
+    clip-path: polygon(0px 0%, 100% 0px, 100% 80%, 0px 100%);
+}
+
+.infoContainerPoster {
+    width: 300px;
+    border-radius: 75px;
+    padding: 50px;
+}
+
+.nav {
+    background-image: linear-gradient(to top, #191919, #1e1d20, #222227, #26272e, #292c36, #2c2f39, #2e323c, #31353f, #34363e, #37383d, #39393c, #3b3b3b);
+    padding: 10px 10px 10px 30px;
+}
+
+.nav a {
+    color: #ccc;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: red;
+}
+
+.rating {
+    background-color: #242424;
+    padding: 5px;
+    border-radius: 50%;
+    margin-top: -30px;
+    margin-bottom: 5px;
+    margin-left: -90px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.589);
+    border-right: 1px solid rgba(255, 255, 255, 0.589);
+
+    box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+}
+
+.homeContainer {
+    color: #fff;
+}
+
+.button {
+    padding: 20px;
+    background-image: linear-gradient(to top, #191919, #1e1d20, #222227, #26272e, #292c36, #2c2f39, #2e323c, #31353f, #34363e, #37383d, #39393c, #3b3b3b);
+    color: #ccc;
+}
+
+.detailContainer {
+    color: #fff;
+    text-align: center;
+}
+
+.crewContainer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 35px;
+}
+
+.crewTitle {
+    font-size: 50px;
+    text-shadow: 8px 3px 16px #0000008f;
+}
+
+.crew {
+    width: 150px;
+}
+.infoContainer {
+}
+
+.crewImage {
+    width: 100px;
+    border-radius: 15px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.589);
+    border-right: 2px solid rgba(128, 128, 128, 0.589);
+    box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 36px 25px 80px -9px rgba(0, 0, 0, 0.67);
+}
+
+.castName {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+
+.castCharacter {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+}
