@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import noPicture from "../images/noPicture.png";
 
 function TV() {
-    const [movieID, setTvID] = useState([]);
     const [tvTitle, setTvTitle] = useState([]);
     const [tvBackdrop, setTvBackdrop] = useState([]);
     const [tvPoster, setTvPoster] = useState([]);
@@ -18,10 +17,7 @@ function TV() {
 
     const api_key = process.env.REACT_APP_API_KEY;
 
-    const showTrailer = () => {};
-
     useEffect(() => {
-        setTvID(id);
         axios
             .get("https://api.themoviedb.org/3/tv/" + id + "?api_key=" + api_key + "&language=en-US")
             .then((res) => {
