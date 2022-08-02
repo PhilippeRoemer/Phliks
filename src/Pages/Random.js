@@ -30,7 +30,6 @@ function Random() {
                 setMoviePoster(movie.poster_path);
                 let releaseDate = new Date(movie.release_date).toLocaleDateString("en-us", { year: "numeric", month: "short", day: "numeric" });
                 setMovieBYear(releaseDate);
-                /* setMovieBYear(movie.release_date); */
                 setMovieRating(movie.vote_average.toFixed(1));
                 setMovieDescription(movie.overview);
                 setMovieID(movie.id);
@@ -75,19 +74,23 @@ function Random() {
             {movieTitle === null ? (
                 <>
                     <div className="randomMovieButtonContainer">
-                        <div onClick={randomMovie}>Click here for a random movie</div>
+                        <div onClick={randomMovie} className="randomMovieButton">
+                            Click here for a random movie
+                        </div>
                     </div>
                 </>
             ) : (
                 <>
                     <div
-                        className="infoContainerBackground"
+                        className="randomInfoContainerBackground"
                         style={{
                             backgroundImage: `linear-gradient(rgba(187, 187, 187, 0.52), rgb(0, 0, 0)),url(${"https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/" + movieBackdrop})`,
                         }}
                     >
-                        <div onClick={randomMovie}>New Random Movie</div>
-                        <div className="infoContainer">
+                        <div onClick={randomMovie} className="selectedRandomMovieButton">
+                            New Random Movie
+                        </div>
+                        <div className="randomInfoContainer">
                             <img className="infoContainerPoster" src={"http://image.tmdb.org/t/p/w500" + moviePoster} alt="" />
                             <div>
                                 <h1>{movieTitle}</h1>
