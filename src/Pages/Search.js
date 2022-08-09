@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
     const [movieInput, setMovieInput] = useState("");
@@ -21,18 +22,33 @@ function Search() {
             });
     };
 
+    const navigate = useNavigate();
+    const info = useCallback((e) => navigate("/movie/" + e.target.id, { replace: true }), [navigate]);
+
     return (
-        <div>
-            <input type="text" onChange={(e) => setMovieInput(e.target.value)} />
-            <button onClick={searchMovie}>Search Movie</button>
+        <div className="searchContainer">
+            {searchResults.length > 0 ? (
+                <div className="inputContainerAfter">
+                    <input type="text" onChange={(e) => setMovieInput(e.target.value)} />
+                    <button onClick={searchMovie}>Search Movie</button>
+                </div>
+            ) : (
+                <div className="inputContainer">
+                    <input type="text" onChange={(e) => setMovieInput(e.target.value)} />
+                    <button onClick={searchMovie}>Search Movie</button>
+                </div>
+            )}
+
             <div className="moviesContainer">
-                {searchResults.map((movie) => (
-                    <div className="movieContainer">
-                        <img src={"http://image.tmdb.org/t/p/w500" + movie.poster_path} alt="" className="moviePoster" id={movie.id} /* onClick={info} */ />
-                        <p className="rating">{movie.vote_average.toFixed(1)}</p>
-                        <p>{movie.original_title}</p>
-                    </div>
-                ))}
+                {searchResults.map((movie) => {
+                    return (
+                        <div className="movieContainer">
+                            <img src={"http://image.tmdb.org/t/p/w500" + movie.poster_path} alt="" className="moviePoster" id={movie.id} onClick={info} />
+                            <p className="rating">{movie.vote_average.toFixed(1)}</p>
+                            <p>{movie.original_title}</p>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
